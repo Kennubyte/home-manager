@@ -18,15 +18,45 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.hello
+    
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-
+  # Bring in Starship
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
+  # Zsh declarative setup
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    # Custom aliases
+    shellAliases = {
+      ls = "ls --color=auto";
+      grep = "grep --color=auto";
+      ":q" = "exit";
+      ":wq" = "exit";
+      hm = "home-manager";
+    };
+
+    initContent = ''
+        export PATH="$HOME/.local/bin:$HOME/.local/share/SLSsteam/path:$HOME/.nix-profile/bin:$PATH"
+
+        hms() {
+          local dir="$HOME/.config/home-manager"   # adjust to your path
+          git -C "$dir" add . || return
+          git -C "$dir" diff --cached --quiet \
+            || git -C "$dir" commit -m "hms: $(date +'%F %T')" || return
+          git -C "$dir" push || return
+          home-manager switch
+        }
+    '';
+  };
+  
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -40,11 +70,9 @@
   };
   home.file.".config/nvim" = {
     source = ./dots/nvim;
-    recursive = true;
   };
   home.file.".config/niri" = {
     source = ./dots/niri;
-    recursive = true;
   };
 
 
