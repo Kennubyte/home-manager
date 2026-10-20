@@ -51,7 +51,7 @@
           local dir="$HOME/.config/home-manager"   # adjust to your path
           git -C "$dir" add . || return
           git -C "$dir" diff --cached --quiet \
-            || git -C "$dir" commit -m "hms: $(date +'%F %T')" || return
+            || git -C "$dir" commit -m "home-manager switch: $(date +'%F %T')" || return
           git -C "$dir" push || return
           home-manager switch
         }
