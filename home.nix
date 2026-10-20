@@ -41,7 +41,7 @@
       ":q" = "exit";
       ":wq" = "exit";
       hm = "home-manager";
-      hme = "edit $HOME/.config/home-manager/home.nix";
+      hme = "nvim $HOME/.config/home-manager/home.nix";
     };
 
     initContent = ''
