@@ -1,0 +1,129 @@
+include "layout.kdl"
+
+output "eDP-1" {
+    scale 1.25
+}
+
+input {
+    keyboard {
+        xkb {}
+        numlock
+    }
+    
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        accel-speed 0
+        accel-profile "flat"
+    }
+}
+
+spawn-sh-at-startup "awww-daemon"
+spawn-sh-at-startup "vicinae server"
+spawn-sh-at-startup "qs"
+spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-sh-at-startup "audiorelay --minimized"
+spawn-sh-at-startup "/home/ken/.config/niri/arrange-outputs.py --watch"
+spawn-sh-at-startup "/usr/bin/kdeconnectd"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+window-rule {
+    geometry-corner-radius 6
+    clip-to-geometry true
+}
+
+switch-events {
+	lid-close { spawn "/home/ken/.config/niri/lidOn.sh"; }
+	lid-open { spawn "/home/ken/.config/niri/lidOff.sh"; }
+}
+
+binds {
+    Mod+Q hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+E hotkey-overlay-title="Open nautilus: nautilus" { spawn "nautilus"; }
+    Mod+R hotkey-overlay-title="Run an Application: vicinae" { spawn "vicinae" "toggle"; }
+    Mod+W { spawn "helium-browser"; }
+    Mod+L { spawn "qs" "ipc" "call" "Locker" "lock"; }
+    Mod+O repeat=false { toggle-overview; }
+    Mod+C repeat=false { close-window; }
+    Mod+Period { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs ipc call inputHandler volUp"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "qs ipc call inputHandler volDown"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "qs ipc call inputHandler mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+M { maximize-window-to-edges; }
+
+	Mod+Shift+S { screenshot; }
+}
+
+
+window-rule {
+    match app-id="helium"
+    open-maximized true
+}
+
+layer-rule {
+    match namespace="^qs-bar$"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+blur {
+    passes 2
+    offset 2.0
+    noise 0.02
+}
