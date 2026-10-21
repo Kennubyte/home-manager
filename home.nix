@@ -19,6 +19,7 @@
   # environment.
   home.packages = with pkgs; [
     quickshell
+    tree-sitter
     awww
     vicinae
   ];
