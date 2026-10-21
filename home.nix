@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     quickshell
     awww
+    vicinae
   ];
 
   # Bring in Starship

@@ -21,9 +21,9 @@ input {
     }
 }
 
-// spawn-sh-at-startup "awww-daemon"
-// spawn-sh-at-startup "vicinae server"
-// spawn-sh-at-startup "qs"
+spawn-sh-at-startup "awww-daemon"
+spawn-sh-at-startup "vicinae server"
+spawn-sh-at-startup "qs"
 // spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 // spawn-sh-at-startup "audiorelay --minimized"
 // spawn-sh-at-startup "/home/ken/.config/niri/arrange-outputs.py --watch"
