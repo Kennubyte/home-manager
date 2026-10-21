@@ -19,6 +19,7 @@
   # environment.
   home.packages = with pkgs; [
     quickshell
+    awww
   ];
 
   # Bring in Starship
