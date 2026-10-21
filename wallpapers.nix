@@ -12,7 +12,6 @@ in
     value = {
       source = pkgs.fetchurl {
         inherit url;
-        sha256 = lib.fakeSha256;
       };
     };
   }) urls);
