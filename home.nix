@@ -19,7 +19,6 @@
   # environment.
   home.packages = with pkgs; [
     quickshell
-    alacritty
   ];
 
   # Bring in Starship
