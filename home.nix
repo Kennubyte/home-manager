@@ -21,6 +21,7 @@
     quickshell
     awww
     vicinae
+    helium-browser
   ];
 
   # Bring in Starship
