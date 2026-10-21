@@ -1,0 +1,39 @@
+[config]
+prefer="saturation"
+
+
+[config.wallpaper]
+command = "cp {{ image }} ~/.config/quickshell/assets/Wallpaper"
+
+[templates.alacritty]
+input_path = 'templates/alacritty.toml'
+output_path = '~/.config/alacritty/colors.toml'
+
+[templates.terminal-sequences]
+input_path = 'templates/terminal-sequences'
+output_path = "~/.cache/terminal-sequences"
+post_hook = "tee /dev/pts/[0-9]* < ~/.cache/terminal-sequences" # export the sequences to every running terminal
+
+[templates.vicinae]
+input_path = './templates/vicinae.toml'
+output_path = '~/.local/share/vicinae/themes/matugen.toml'
+post_hook = 'vicinae theme set matugen'
+
+[templates.quickshell]
+input_path = "~/.config/matugen/templates/quickshell"
+output_path = "~/.config/quickshell/Colors.qml"
+
+[templates.niri]
+input_path = "templates/niri"
+output_path = "/home/ken/.config/niri/layout.kdl"
+
+
+[templates.gtk3]
+input_path = 'templates/gtk-colors'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = 'templates/gtk-colors'
+output_path = '~/.config/gtk-4.0/colors.css'
+post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'

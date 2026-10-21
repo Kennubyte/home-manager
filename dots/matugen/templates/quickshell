@@ -1,0 +1,12 @@
+pragma Singleton
+import QtQuick
+import Quickshell
+
+Singleton {
+<* for name, color in colors *>
+    readonly property color {{ name }}: "{{ color.default.hex }}"
+<* endfor *>
+<* for name, palette in palettes *><* for shade, color in palette *>
+    readonly property color {{ name }}{{ shade }}: "{{ color.hex }}"
+<* endfor *><* endfor *>
+}

@@ -75,7 +75,9 @@
   home.file.".config/niri" = {
     source = ./dots/niri;
   };
-
+  home.file.".config/matugen" = {
+    source = ./dots/matugen;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
