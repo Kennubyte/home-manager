@@ -17,8 +17,9 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    
+  home.packages = with pkgs; [
+    neovim
+    quickshell
   ];
 
   # Bring in Starship
@@ -58,11 +59,6 @@
     '';
   };
   
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-  };
-
 
   # dots
   home.file.".config/quickshell" = {
