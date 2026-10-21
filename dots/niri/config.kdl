@@ -21,6 +21,7 @@ input {
     }
 }
 
+spawn-sh-at-startup "alacritty"
 // spawn-sh-at-startup "awww-daemon"
 // spawn-sh-at-startup "vicinae server"
 // spawn-sh-at-startup "qs"
