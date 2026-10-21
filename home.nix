@@ -80,6 +80,18 @@
         source = ./dots/matugen;
     };
 
+
+    home.file.".local/share/vicinae/extensions/awww-switcher" = {
+      source = pkgs.fetchFromGitHub {
+        owner = "0x4c756e61";
+        repo = "awww-switcher";
+        rev = "main"; # or lock it to a specific git commit hash
+        hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="; # fill with true hash or lib.fakeHash
+      };
+      recursive = true;
+    };
+
+
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 }
