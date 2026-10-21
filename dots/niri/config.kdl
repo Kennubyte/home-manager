@@ -31,7 +31,7 @@ spawn-sh-at-startup "alacritty"
 // spawn-sh-at-startup "/usr/bin/kdeconnectd"
 
 hotkey-overlay {
-    skip-at-startup
+
 }
 
 prefer-no-csd
