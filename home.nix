@@ -68,10 +68,6 @@
 
 
     # dots
-    home.file.".config/quickshell" = {
-        source = ./dots/quickshell;
-        recursive = true;
-    };
     home.file.".config/nvim" = {
         source = ./dots/nvim;
         recursive = true;
