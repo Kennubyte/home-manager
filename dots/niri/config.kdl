@@ -108,20 +108,19 @@ binds {
 	Mod+Shift+S { screenshot; }
 }
 
+// Automatically float IntelliJ / JetBrains splash screens & dialogs
 window-rule {
-    match title=r#"(?i)open file"#
-    match title=r#"(?i)save as"#
-    match title=r#"(?i)save file"#
-    match title=r#"(?i)confirm"#
-    match title=r#"(?i)dialog"#
-    match title=r#"(?i)preferences"#
-    match title=r#"(?i)settings"#
-    match title=r#"(?i)properties"#
-    match title=r#"(?i)picture-in-picture"#
-
+    match app-id=r#"^jetbrains-"# title=r#"^Welcome to "#
+    match app-id=r#"^jetbrains-"# title=r#"^win"#
+    
     open-floating true
 }
 
+// Global rule: automatically float windows that request a fixed max size
+window-rule {
+    // Tells Niri to respect the app's native window size hints and float 'em
+    open-floating-bounds-are-hints true
+}
 window-rule {
     match app-id="helium"
     open-maximized true
