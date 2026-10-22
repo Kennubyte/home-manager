@@ -21,6 +21,10 @@ input {
     }
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 spawn-sh-at-startup "awww-daemon"
 spawn-sh-at-startup "vicinae server"
 spawn-sh-at-startup "qs"
