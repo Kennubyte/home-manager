@@ -52,6 +52,7 @@
 
         initContent = ''
         export PATH="$HOME/.local/bin:$HOME/.local/share/SLSsteam/path:$HOME/.nix-profile/bin:$PATH"
+        export PAGER="nvim -c 'set ft=man' -"
 
         hms() {
           local dir="$HOME/.config/home-manager"   # adjust to your path
