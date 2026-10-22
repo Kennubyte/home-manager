@@ -21,9 +21,6 @@ input {
     }
 }
 
-hotkey-overlay {
-    skip-at-startup
-}
 
 spawn-sh-at-startup "awww-daemon"
 spawn-sh-at-startup "vicinae server"
@@ -34,7 +31,7 @@ spawn-sh-at-startup "/home/ken/.config/niri/arrange-outputs.py --watch"
 // spawn-sh-at-startup "/usr/bin/kdeconnectd"
 
 hotkey-overlay {
-
+    skip-at-startup
 }
 
 prefer-no-csd
