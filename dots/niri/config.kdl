@@ -24,9 +24,9 @@ input {
 spawn-sh-at-startup "awww-daemon"
 spawn-sh-at-startup "vicinae server"
 spawn-sh-at-startup "qs"
-// spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 // spawn-sh-at-startup "audiorelay --minimized"
-// spawn-sh-at-startup "/home/ken/.config/niri/arrange-outputs.py --watch"
+spawn-sh-at-startup "/home/ken/.config/niri/arrange-outputs.py --watch"
 // spawn-sh-at-startup "/usr/bin/kdeconnectd"
 
 hotkey-overlay {
@@ -108,6 +108,19 @@ binds {
 	Mod+Shift+S { screenshot; }
 }
 
+window-rule {
+    match title=r#"(?i)open file"#
+    match title=r#"(?i)save as"#
+    match title=r#"(?i)save file"#
+    match title=r#"(?i)confirm"#
+    match title=r#"(?i)dialog"#
+    match title=r#"(?i)preferences"#
+    match title=r#"(?i)settings"#
+    match title=r#"(?i)properties"#
+    match title=r#"(?i)picture-in-picture"#
+
+    open-floating true
+}
 
 window-rule {
     match app-id="helium"
