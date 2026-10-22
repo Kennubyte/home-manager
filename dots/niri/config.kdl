@@ -56,9 +56,9 @@ binds {
     Mod+C repeat=false { close-window; }
     Mod+Period { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "qs ipc call inputHandler volUp"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "qs ipc call inputHandler volDown"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "qs ipc call inputHandler mute"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
