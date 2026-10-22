@@ -113,6 +113,7 @@ binds {
 window-rule {
     match app-id=r#"^jetbrains-"# title=r#"^Welcome to "#
     match app-id=r#"^jetbrains-"# title=r#"^win"#
+    match title="Bitwarden"
     
     open-floating true
 }
