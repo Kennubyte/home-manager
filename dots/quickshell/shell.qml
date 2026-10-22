@@ -4,7 +4,7 @@ import "./Bar"
 import "./Lock"
 
 ShellRoot {
-    id: root
+id: root
 
     Variants {
         model: Quickshell.screens

@@ -72,12 +72,15 @@
     };
     home.file.".config/nvim" = {
         source = ./dots/nvim;
+        recursive = true;
     };
     home.file.".config/niri" = {
         source = ./dots/niri;
+        recursive = true;
     };
     home.file.".config/matugen" = {
         source = ./dots/matugen;
+        recursive = true;
     };
 
     # Let Home Manager install and manage itself.
