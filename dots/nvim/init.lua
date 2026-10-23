@@ -31,11 +31,14 @@ vim.cmd([[cnoreabbrev <expr> q (getcmdtype() == ':' && getcmdline() == 'q') ? 'q
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qml",
   callback = function(args)
-    vim.bo[args.buf].indentexpr = ""
-    vim.bo[args.buf].cindent = true
-    vim.bo[args.buf].shiftwidth = 4
-    vim.bo[args.buf].tabstop = 4
-    vim.bo[args.buf].expandtab = true
+    local b = vim.bo[args.buf]
+    b.indentexpr = ""
+    b.cindent = false
+    b.smartindent = true
+    b.autoindent = true
+    b.shiftwidth = 4
+    b.tabstop = 4
+    b.expandtab = true
   end,
 })
 
