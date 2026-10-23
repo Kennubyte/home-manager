@@ -6,7 +6,10 @@ output "eDP-1" {
 
 input {
     keyboard {
-        xkb {}
+        xkb {
+            layout "ee"
+            variant "nodeadkeys"
+        }
         numlock
     }
     
