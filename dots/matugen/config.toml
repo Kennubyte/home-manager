@@ -1,6 +1,6 @@
 [config]
 prefer="saturation"
-
+mode = "dark"
 
 [config.wallpaper]
 command = "cp {{ image }} ~/.config/quickshell/assets/Wallpaper"
