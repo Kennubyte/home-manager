@@ -7,6 +7,8 @@ let
     "https://w.wallhaven.cc/full/og/wallhaven-og7p79.jpg"
     "https://w.wallhaven.cc/full/qr/wallhaven-qrpygl.jpg"
     "https://w.wallhaven.cc/full/zp/wallhaven-zpvvrw.jpg"
+    "https://w.wallhaven.cc/full/zp/wallhaven-zpvrrj.jpg"
+    "https://w.wallhaven.cc/full/21/wallhaven-2165dx.png"
   ];
   dir = "${config.home.homeDirectory}/Pictures/Wallpapers";
 in
