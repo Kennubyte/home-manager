@@ -66,11 +66,11 @@ require("lazy").setup({
   spec = {
     -- Colorscheme
     {
-      "navarasu/onedark.nvim",
+      "kepano/flexoki-neovim",
       lazy = false,
       priority = 1000,
       config = function()
-        vim.cmd.colorscheme("onedark")
+        vim.cmd.colorscheme("flexoki")
       end,
     },
 
@@ -259,6 +259,6 @@ require("lazy").setup({
     },
   },
 
-  install = { colorscheme = { "onedark" } },
+  install = { colorscheme = { "flexoki" } },
   checker = { enabled = true, notify = false },
 })
