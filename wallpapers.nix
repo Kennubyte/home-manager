@@ -4,6 +4,9 @@ let
   urls = [
     "https://w.wallhaven.cc/full/yq/wallhaven-yqkl97.jpg"
     "https://w.wallhaven.cc/full/q6/wallhaven-q6wz6r.jpg"
+    "https://w.wallhaven.cc/full/og/wallhaven-og7p79.jpg"
+    "https://w.wallhaven.cc/full/qr/wallhaven-qrpygl.jpg"
+    "https://w.wallhaven.cc/full/zp/wallhaven-zpvvrw.jpg"
   ];
   dir = "${config.home.homeDirectory}/Pictures/Wallpapers";
 in
