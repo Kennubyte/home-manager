@@ -45,22 +45,22 @@
     };
 
     initContent = ''
-      # Include Flatpak paths so Vicinae indexes desktop applications
-      export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$HOME/.local/share:${"${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"}"
-      
-      export PATH="$HOME/.local/bin:$HOME/.local/share/SLSsteam/path:$HOME/.nix-profile/bin:$PATH"
-      export PAGER="nvim -c 'set ft=man' -"
-      alias vac="source .venv/bin/activate"
+        # Include Flatpak paths so Vicinae indexes desktop applications
+        export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$HOME/.local/share:''${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+        
+        export PATH="$HOME/.local/bin:$HOME/.local/share/SLSsteam/path:$HOME/.nix-profile/bin:$PATH"
+        export PAGER="nvim -c 'set ft=man' -"
+        alias vac="source .venv/bin/activate"
 
-      hms() {
-        local dir="$HOME/.config/home-manager"
-        git -C "$dir" add . || return
-        git -C "$dir" diff --cached --quiet \
-          || git -C "$dir" commit -m "home-manager switch: $(date +'%F %T')" || return
-        git -C "$dir" push || return
-        home-manager switch
-      }
-    '';
+        hms() {
+          local dir="$HOME/.config/home-manager"
+          git -C "$dir" add . || return
+          git -C "$dir" diff --cached --quiet \
+            || git -C "$dir" commit -m "home-manager switch: $(date +'%F %T')" || return
+          git -C "$dir" push || return
+          home-manager switch
+        }
+      '';
   };
 
   # Dotfile symlinks
