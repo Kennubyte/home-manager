@@ -26,12 +26,12 @@ input {
 
 
 spawn-sh-at-startup "awww-daemon"
-spawn-sh-at-startup "vicinae server"
+spawn-sh-at-startup "XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/ken/.local/share/flatpak/exports/share:$XDG_DATA_DIRS vicinae server"
 spawn-sh-at-startup "qs"
 spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-// spawn-sh-at-startup "audiorelay --minimized"
 spawn-sh-at-startup "/home/ken/.config/niri/arrange-outputs.py --watch"
-// spawn-sh-at-startup "/usr/bin/kdeconnectd"
+spawn-at-startup "/usr/lib/kdeconnectd"
+spawn-at-startup "kdeconnect-indicator"
 
 hotkey-overlay {
     skip-at-startup
